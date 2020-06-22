@@ -1,0 +1,84 @@
+persistence:
+  enabled: false
+master:
+  tag: 2.235.1
+  additionalPlugins:
+    - github-branch-source:2.8.2
+    - blueocean:1.23.2
+    - junit:1.29
+    - job-dsl:1.77
+    - greenballs:1.15
+  sidecars:
+    configAutoReload:
+      enabled: false
+    other:
+      - name: ngrok
+        image: bark100/ngrok:2.3.35
+        args: ['http', '8080', '--log', 'stdout', '--log-format', 'logfmt']
+        resources:
+          limits:
+            cpu: 50m
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 32Mi
+
+  serviceType: NodePort
+
+  containerEnv:
+    - name: WORKSHOP_NAME
+      value: ""
+    - name: GITHUB_REPO_NAME
+      value: ""
+    - name: GITHUB_USER_NAME
+      value: ""
+    - name: GITHUB_API_TOKEN
+      value: ""
+
+  JCasC:
+    configScripts:
+      general: |
+        jenkins:
+          systemMessage: "Welcome to ${WORKSHOP_NAME} Jenkins CI/CD!"
+      github-credentials: |
+        credentials:
+          system:
+            domainCredentials:
+              - credentials:
+                  - usernamePassword:
+                      scope: GLOBAL
+                      id: github-credentials
+                      username: ${GITHUB_USER_NAME}
+                      password: ${GITHUB_API_TOKEN}
+                      description: "GitHub Credentials"
+
+      jobs-definitions: |
+        jobs:
+        - script: >
+            multibranchPipelineJob("${GITHUB_REPO_NAME}") {
+              branchSources {
+                branchSource {
+                  source {
+                    github {
+                      id = "${GITHUB_REPO_NAME}"
+                      configuredByUrl(false)
+                      repository("${GITHUB_REPO_NAME}")
+                      repoOwner("${GITHUB_USER_NAME}")
+                      repositoryUrl('')
+                      credentialsId('github-credentials')
+                      traits {
+                        gitHubBranchDiscovery {
+                          strategyId(1)
+                        }
+                        gitHubPullRequestDiscovery {
+                          strategyId(1)
+                        }
+                        headRegexFilter {
+                          regex('master|PR-.*')
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
