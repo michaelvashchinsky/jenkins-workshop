@@ -3,14 +3,14 @@
 pipeline {
     agent {
         kubernetes {
-            defaultContainer 'npm'
+            defaultContainer 'sbt'
             yaml """
 apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: npm
-    image: node:10.15.1
+  - name: sbt
+    image: hseeberger/scala-sbt:8u252_1.3.13_2.13.3
     command:
     - cat
     tty: true
@@ -21,13 +21,10 @@ spec:
 """
         }
     }
-    environment {
-        npm_config_registry = "http://my-awesome-repo.example.com/"
-    }
     stages {
         stage('Prepare environment') {
             steps {
-                sh 'npm init -y'
+                sh 'sbt compile'
             }
         }
     }

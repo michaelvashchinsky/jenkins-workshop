@@ -9,9 +9,11 @@
 1. Install prerequisites:
     * Mac users: [Hyperkit](https://minikube.sigs.k8s.io/docs/drivers/hyperkit/)
     * Linux users: [kvm2](https://minikube.sigs.k8s.io/docs/drivers/kvm2/)
-    * Install [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
-    * Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-    * Install [helm](https://helm.sh/docs/intro/install/).
+    * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
+    * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+    * [helm](https://helm.sh/docs/intro/install/).
+    * [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html).
+    
 
 2. Checkout this repository and change directory to the root of the repository.
 
@@ -44,3 +46,18 @@
 ```bash
 $ (source .env && minikube delete --profile ${WORKSHOP_NAME})
 ```
+
+
+**Scala Project:**
+* Run unit tests:
+    ```bash
+    $ sbt 'testOnly -- -n UnitTest'
+    ```
+* Run "Slow" suite:
+    ```bash
+    $ sbt 'testOnly -- -n Slow'
+    ```
+* Run all tests:
+    ```bash
+    $ sbt test
+    ```
