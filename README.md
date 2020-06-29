@@ -33,7 +33,7 @@
    Jenkins Admin user URL:               http://192.168.39.20:32000/login
    Jenkins Admin user name:              admin
    Jenkins Admin user password:          secret
-   GitHub WebHook URL: (NGROK Channel)   https://123456abc.ngrok.io/github-webhook/
+   GitHub WebHook URL: (Ngrok tunnel)    https://123456abc.ngrok.io/github-webhook/
    ====================================================================================
     ```
 

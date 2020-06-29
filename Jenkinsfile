@@ -27,5 +27,21 @@ spec:
                 sh 'sbt compile'
             }
         }
+        stage('Unit test') {
+            steps {
+                sh "sbt 'testOnly -- -n UnitTest'"
+            }
+        }
+        stage('Slow tests') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh "sbt 'testOnly -- -n Slow'"
+            }
+            post {
+                uns
+            }
+        }
     }
 }
