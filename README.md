@@ -67,8 +67,16 @@ $ ./reset-workshop.sh cleanup
     ```
   Please make sure you installed all the system requirements as per described
   in the Getting Started section.
-   
 
+* I see the following message when executing `./reset-workshop.sh`:
+
+    ```bash
+    The ‘hyperkit’ driver requires elevated permissions. The following commands will be executed:
+    $ sudo chown root:wheel /Users/razalon/.minikube/bin/docker-machine-driver-hyperkit 
+    $ sudo chmod u+s /Users/razalon/.minikube/bin/docker-machine-driver-hyperkit 
+    ```
+  Minikube is trying to update Hyperkit driver, this is normal. Please enter your operating system 
+  username and password and hit Enter. 
 
 **Scala Project:**
 * Run unit tests:
