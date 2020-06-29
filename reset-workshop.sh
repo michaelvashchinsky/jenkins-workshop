@@ -2,12 +2,13 @@
 set -e
 
 DOTENV=./.env
+DOTENV_EXAMPLE=./.env.example
 
 if test -f "$DOTENV"; then
     export $(cat "$DOTENV" | xargs)
 else
-    echo "ERROR: Missing .env file."
-    exit 1
+    echo "INFO: Missing .env file, using defaults from ${DOTENV_EXAMPLE}"
+    export $(cat "$DOTENV_EXAMPLE" | xargs)
 fi
 
 OS="$(uname -s)"
