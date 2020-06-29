@@ -16,7 +16,7 @@
     
 2. Checkout this repository and change directory to the root of the repository.
 
-3. [Optional] Create a `.env` file and update your GitHub credentials and repository settings.
+3. **[Optional]** Create a `.env` file and update your GitHub credentials and repository settings.
    See `.env.example` file for reference. 
 
 4. Launch or reset workshop:
@@ -37,7 +37,7 @@
    ====================================================================================
     ```
 
-5. [Optional] Update GitHub webhook URL in your GitHub repository settings.
+5. **[Optional]** Update GitHub webhook URL in your GitHub repository settings.
 
 6. Login to the Jenkins web UI and enter your credentials. If you see the 
 `Welcome to ${WORKSHOP_NAME} Jenkins CI/CD!` screen, you are ready!
