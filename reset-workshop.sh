@@ -11,6 +11,12 @@ else
     export $(cat "$DOTENV_EXAMPLE" | xargs)
 fi
 
+if [ "$1" == "cleanup" ]; then
+    echo "Cleaning Jenkins workshop: '${WORKSHOP_NAME}'..."
+    minikube delete --profile ${WORKSHOP_NAME}
+    exit 0
+fi
+
 OS="$(uname -s)"
 if [ "${OS}" == "Darwin" ]; then
     DRIVER="hyperkit"
@@ -26,7 +32,7 @@ echo "Resetting Jenkins workshop: '${WORKSHOP_NAME}'..."
 minikube delete --profile ${WORKSHOP_NAME} 2> /dev/null
 minikube start \
             --driver=${DRIVER} \
-            --interactive=false \
+            --interactive=true \
             --cpus=${CPUS} \
             --memory=${MEMORY} \
             --profile=${WORKSHOP_NAME}

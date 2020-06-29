@@ -48,8 +48,26 @@
 
 **Cleanup:**
 ```bash
-$ (source .env.example && minikube delete --profile ${WORKSHOP_NAME})
+$ ./reset-workshop.sh cleanup
 ```
+
+**Troubleshooting**
+
+* I'm getting a browser timeout error when trying to access the Jenkins UI `/login` page.
+  Please try again to provision the lab by executing: 
+  
+    ```bash
+    ./reset-workshop.sh
+    ```
+  
+* I see the following error when executing `./reset-workshop.sh`: 
+  
+    ```bash
+    zsh: command not found: minikube
+    ```
+  Please make sure you installed all the system requirements as per described
+  in the Getting Started section.
+   
 
 
 **Scala Project:**
