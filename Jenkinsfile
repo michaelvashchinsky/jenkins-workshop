@@ -22,7 +22,7 @@ spec:
         }
     }
     stages {
-        stage('Prepare environment') {
+        stage('Compile') {
             steps {
                 sh 'sbt compile'
             }
