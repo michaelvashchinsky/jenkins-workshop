@@ -7,12 +7,15 @@
 
 **Getting started:**
 1. Install prerequisites:
-    * Mac users: [Hyperkit](https://minikube.sigs.k8s.io/docs/drivers/hyperkit/)
-    * Linux users: [kvm2](https://minikube.sigs.k8s.io/docs/drivers/kvm2/)
-    * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
-    * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-    * [helm](https://helm.sh/docs/intro/install/).
-    * [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html).
+    * Mac users: 
+        * [Hyperkit](https://minikube.sigs.k8s.io/docs/drivers/hyperkit/)
+    * Linux users: 
+        * [kvm2](https://minikube.sigs.k8s.io/docs/drivers/kvm2/)
+    * Mac + Linux:
+        * [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/).
+        * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+        * [helm](https://helm.sh/docs/intro/install/).
+        * [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html).
     
 2. Checkout this repository and change directory to the root of the repository.
 
