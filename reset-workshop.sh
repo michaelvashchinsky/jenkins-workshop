@@ -47,6 +47,7 @@ echo "Installing Jenkins..."
 helm repo add stable https://kubernetes-charts.storage.googleapis.com > /dev/null
 helm uninstall ${WORKSHOP_NAME} &> /dev/null || true
 helm install --atomic \
+             --timeout 10m0s \
              --version 2.1.0 \
              --values values.yaml \
              --set "master.nodePort=${NODE_PORT}" \
