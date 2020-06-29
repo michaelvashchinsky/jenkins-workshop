@@ -14,10 +14,10 @@
     * [helm](https://helm.sh/docs/intro/install/).
     * [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html).
     
-
 2. Checkout this repository and change directory to the root of the repository.
 
-3. [Optional] Update `.env` file with your details.
+3. Create a `.env` file and update your GitHub credentials and repository settings.
+   See `.env.example` file for reference. 
 
 4. Launch or reset workshop:
     ```bash
