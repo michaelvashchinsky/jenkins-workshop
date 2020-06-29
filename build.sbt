@@ -9,4 +9,4 @@
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
 
-testOptions in Test += Tests.Argument("-u", "target/junit")  // Use JUnitXmlReporter
+testOptions in Test += Tests.Argument("-o", "-u", "target/junit")  // Use JUnitXmlReporter
