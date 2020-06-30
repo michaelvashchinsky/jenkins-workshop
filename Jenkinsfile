@@ -40,10 +40,16 @@ spec:
                 sh "sbt 'testOnly -- -n Slow'"
             }
         }
+        stage('Package') {
+            steps {
+                sh "sbt package"
+            }
+        }
     }
     post {
         always {
             junit 'target/junit/**/*.xml'
+            archiveArtifacts 'target/**/*.jar'
         }
     }
 }
