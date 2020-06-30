@@ -19,8 +19,12 @@
     
 2. Checkout this repository and change directory to the root of the repository.
 
-3. **[Optional]** Create a `.env` file and update your GitHub credentials and repository settings.
+3. **[Optional]** Create a `.env` file and update your GitHub credentials and repository details.
    See `.env.example` file for reference. 
+   You'll need a [GitHub API token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) 
+   with only the [`public_repo`](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes) 
+   scope assigned to it.
+   
 
 4. Launch or reset workshop:
     ```bash
